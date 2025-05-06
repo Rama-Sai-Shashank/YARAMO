@@ -1,0 +1,151 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Brand Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><img src="images/logo.png" id="logo-pic"> YARAMO - The Indian Clothing Store</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">☰</div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Discover Timeless Fashion</h1>
+            <p>Elevate your style with our curated collection.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products" id="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <!-- Product Card 1 -->
+            <div class="product-card" data-aos="fade-up">
+                <img src="images/product1.jpg" alt="Classic White Shirt">
+                <h3>Classic White Shirt</h3>
+                <p class="price">$49.99</p>
+                <button class="btn view-details" data-product="product1">View Details</button>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="images/product2.jpg" alt="Denim Jacket">
+                <h3>Denim Jacket</h3>
+                <p class="price">$89.99</p>
+                <button class="btn view-details" data-product="product2">View Details</button>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="images/product3.jpg" alt="Black Dress">
+                <h3>Black Dress</h3>
+                <p class="price">$69.99</p>
+                <button class="btn view-details" data-product="product3">View Details</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="product-details" id="product1-details">
+                <img src="images/product1.jpg" alt="Classic White Shirt">
+                <div class="details-text">
+                    <h2>Classic White Shirt</h2>
+                    <p class="price">$49.99</p>
+                    <p>A timeless white shirt made from premium cotton, perfect for any occasion.</p>
+                    <div class="sizes">
+                        <label><input type="radio" name="size" value="S" checked> S</label>
+                        <label><input type="radio" name="size" value="M"> M</label>
+                        <label><input type="radio" name="size" value="L"> L</label>
+                    </div>
+                    <button class="btn order-now" data-product="Classic White Shirt">Order Now</button>
+                </div>
+            </div>
+            <div class="product-details" id="product2-details" style="display: none;">
+                <img src="images/product2.jpg" alt="Denim Jacket">
+                <div class="details-text">
+                    <h2>Denim Jacket</h2>
+                    <p class="price">$89.99</p>
+                    <p>A stylish denim jacket with a modern fit, ideal for casual outings.</p>
+                    <div class="sizes">
+                        <label><input type="radio" name="size" value="S" checked> S</label>
+                        <label><input type="radio" name="size" value="M"> M</label>
+                        <label><input type="radio" name="size" value="L"> L</label>
+                    </div>
+                    <button class="btn order-now" data-product="Denim Jacket">Order Now</button>
+                </div>
+            </div>
+            <div class="product-details" id="product3-details" style="display: none;">
+                <img src="images/product3.jpg" alt="Black Dress">
+                <div class="details-text">
+                    <h2>Black Dress</h2>
+                    <p class="price">$69.99</p>
+                    <p>An elegant black dress designed for sophistication and comfort.</p>
+                    <div class="sizes">
+                        <label><input type="radio" name="size" value="S" checked> S</label>
+                        <label><input type="radio" name="size" value="M"> M</label>
+                        <label><input type="radio" name="size" value="L"> L</label>
+                    </div>
+                    <button class="btn order-now" data-product="Black Dress">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Form Modal -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Place Your Order</h2>
+            <form action="https://formsubmit.co/languagelearningwebsite@gmail.com" method="POST">
+                <input type="hidden" name="product" id="form-product">
+                <label>
+                    Name:
+                    <input type="text" name="name" required>
+                </label>
+                <label>
+                    Mobile Number:
+                    <input type="tel" name="mobile" required>
+                </label>
+                <label>
+                    Address:
+                    <textarea name="address" required></textarea>
+                </label>
+                <label>
+                    Size:
+                    <select name="size" required>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                </label>
+                <button type="submit" class="btn">Submit Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>Contact us at: +91 7013456478</p>
+        <p>&copy; 2025 YARAMO - The Clothing Store</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
