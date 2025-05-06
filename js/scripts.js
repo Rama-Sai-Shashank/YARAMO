@@ -1,3 +1,4 @@
+
 // js/scripts.js
 document.addEventListener('DOMContentLoaded', () => {
     AOS.init({ duration: 800, once: true });
@@ -45,6 +46,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('click', (e) => {
         if (e.target === productModal) productModal.style.display = 'none';
-        if (e.target === orderModal) orderModal.style.display = 'none';
+        if (e.target === orderModal) productModal.style.display = 'none';
+    });
+
+    // Razorpay integration
+    const razorpayButton = document.createElement('button');
+    razorpayButton.id = 'rzp-button';
+    razorpayButton.className = 'btn';
+    razorpayButton.textContent = 'Pay with Razorpay';
+    document.querySelector('#order-modal form').appendChild(razorpayButton);
+
+    razorpayButton.addEventListener('click', function (e) {
+        const options = {
+            key: 'rzp_test_xxxx12345678', // Replace with your Razorpay Test Key ID
+            amount: 50000, // ₹500.00 in paise
+            currency: 'INR',
+            name: 'YARAMO',
+            description: 'Test Transaction',
+            image: 'images/logo.png',
+            handler: function (response) {
+                alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+            },
+            prefill: {
+                name: document.querySelector('input[name="name"]').value || 'Customer Name',
+                email: 'customer@example.com',
+                contact: document.querySelector('input[name="mobile"]').value || '9999999999'
+            },
+            theme: {
+                color: '#e74c3c'
+            }
+        };
+        const rzp = new Razorpay(options);
+        rzp.open();
+        e.preventDefault();
     });
 });
